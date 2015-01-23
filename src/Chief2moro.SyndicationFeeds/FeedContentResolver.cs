@@ -1,12 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Globalization;
 using System.Linq;
 using Chief2moro.SyndicationFeeds.Models;
 using EPiServer;
 using EPiServer.Core;
-using EPiServer.Globalization;
-using EPiServer.ServiceLocation;
 
 namespace Chief2moro.SyndicationFeeds
 {
@@ -51,7 +47,6 @@ namespace Chief2moro.SyndicationFeeds
 
         private IEnumerable<ContentReference> GetDescendentsOfType<T>(ContentReference contentReference) where T : ContentData
         {
-
             foreach (var reference in ContentLoader.GetDescendents(contentReference))
             {
                 var contentItem = ContentLoader.Get<ContentData>(reference, LanguageSelector.AutoDetect()) as T;
